@@ -706,14 +706,7 @@ class PageFinder extends Wire {
 			$selector->value = count($ids) > 1 ? $ids : reset($ids);
 			
 		} else {
-			$field = $this->isPageField($fieldName);
-			if(is_object($field) && $field instanceof FieldtypePage) {
-				// FieldtypePage fields can use the "," separation syntax for speed optimization
-				$selector->value = count($ids) > 1 ? implode(',', $ids) : reset($ids);
-			} else {
-				// otherwise use array
-				$selector->value = count($ids) > 1 ? $ids : reset($ids);
-			}
+      $selector->value = count($ids) > 1 ? implode(',', $ids) : reset($ids);
 		}
 		
 		$selector->quote = '';
